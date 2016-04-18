@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="utf-8">
+            <title>Simple Savings Calculator</title>
+            <style type="text/css">
+
+                body    {background-color: #282829;
+                        color: lightgray;}
+
+                .center {text-align: center;
+                        top: 5%;
+                        position: absolute;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 100%;}
+
+                input   {text-align: center;
+                        font-size: 1.5vw;
+                        width: 25%;}
+
+                input[type="submit"], [type="reset"]    {width: 10%;}
+
+                table   {text-align: center;
+                        margin-left: auto;
+                        margin-right: auto;
+                        font-size: 1.5vw;
+                        margin-bottom: 5%;
+                        transform: translateY(3%);
+                        width: 25%;}
+
+                td, th  {border-style: solid;
+                        border-width: 1px;
+                        padding: 8px;}
+
+            </style>
+        </head>
+
+        <body>
+
+            <div id="div1" class="center">
+
+                <h1>Simple Savings Calculator</h1>
+
+                <form action="javascript:calc();">
+                    <caption>(all boxes required)</caption>
+                    <p><input id="principal" type="number" min="0"  step="any" placeholder="Enter principal amount here" required></p>
+                    <p><input id="interestRate" type="number" min="0" step="any" placeholder="Enter annual interest rate here" required></p>
+                    <p><input id="years" type="number" min="1" max="100" placeholder="Enter # of years to calculate" required></p>
+                    <p><input type="submit" value="Calculate"><input type="reset" value="Clear" onclick="clearTable()"></p>
+                </form>
+
+                <script type="text/javascript">
+
+                // init this variable first because functions below depend on it
+                var centerDiv = document.getElementById("div1");
+
+                // runs the calculation and generates results table
+                function calc() {
+
+                    // if results table already exists from previous calculation, clear it before performing next calculation
+                    while (document.getElementById("createTable"))
+                    {
+                        var removeTable = document.getElementById("createTable");
+                        centerDiv.removeChild(removeTable);
+                    }
+
+                    // init variables for input and convert them to floating numbers or integers
+                    var principal = document.getElementById("principal").value;
+                    principal = parseFloat(principal); // doing this because type=number is still considered a string and not a number
+
+                    var interestRate = document.getElementById("interestRate").value;
+                    interestRate = parseFloat(interestRate);
+
+                    var years = document.getElementById("years").value;
+                    years = parseInt(years);
+
+                    // convert interest rate % into decimal form
+                    var interestDecimal = interestRate/100;
+
+                    // create html table and append it to the div container
+                    var createTable = document.createElement("table");
+                    createTable.id = "createTable";
+                    centerDiv.appendChild(createTable);
+
+                    var resultHead = createTable.createTHead();
+                    var headRow = resultHead.insertRow();
+                    var headerCell0 = document.createElement("th");
+                    var headerCell1 = document.createElement("th");
+                    headerCell0.innerHTML = "Year";
+                    headRow.appendChild(headerCell0);
+                    headerCell1.innerHTML = "New Balance";
+                    headRow.appendChild(headerCell1);
+
+                    // run calculation and fill table rows until the # of years entered is reached
+                    for (var yearCount = 0; yearCount <= years; ++yearCount)
+                    {
+                        var newBalance = principal * Math.pow(1 + interestDecimal, yearCount);
+
+                        var resultTable = document.getElementById("createTable");
+
+                        var tableRow = resultTable.insertRow(1 + yearCount);
+
+                        var cell0 = tableRow.insertCell(0);
+                        var cell1 = tableRow.insertCell(1);
+
+                        cell0.innerHTML = yearCount;
+                        cell1.innerHTML = "$" + newBalance.toFixed(2);
+
+         
+                    }
+                }
+
+                // Clear button also clears table from last calculation
+                function clearTable() {
+                    if (document.getElementById("createTable"))
+                    {
+                        var removeTable = document.getElementById("createTable");
+                        centerDiv.removeChild(removeTable);
+                    }
+                }
+
+
+
+
+
+                </script>
+            </div>
+        </body>
+    </html>
