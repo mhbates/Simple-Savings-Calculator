@@ -3,10 +3,7 @@ body    {background-color: #282829;
         overflow-x: hidden;}
 
 .center {text-align: center;
-        top: 1%;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
+        margin-top: 1%;
         width: 100%;}
 
 h1      {font-size: 1.5em;
@@ -31,8 +28,8 @@ table   {text-align: center;
         margin-left: auto;
         margin-right: auto;
         font-size: 1.5vw;
-        margin-bottom: 5%;
-        transform: translateY(3%);
+        margin-bottom: 2.5%;
+        margin-top: 2.5%;
         width: 25%;}
 
 td, th  {border-style: solid;
