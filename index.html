@@ -11,10 +11,13 @@
             <div id="div1" class="center">
 
                 <h1>Simple Savings Calculator</h1>
+                <p>
+                    <a href="https://github.com/mhbates/Simple-Savings-Calculator" target="_blank">Source Code</a> |
+                    <a href="http://www.mhbates.com" target="_blank">mhbates.com</a>
+                </p>
 
                 <form action="javascript:calc();">
-                    <caption>(all boxes required)</caption>
-                    <p><input id="principal" type="number" min="0"  step="any" placeholder="Enter principal amount here" required></p>
+                    <p><input id="principal" type="number" min="0" step="any" placeholder="Enter principal amount here" required></p>
                     <p><input id="interestRate" type="number" min="0" step="any" placeholder="Enter annual interest rate here" required></p>
                     <p><input id="years" type="number" min="1" max="100" placeholder="Enter # of years to calculate" required></p>
                     <p><input type="submit" value="Calculate"><input type="reset" value="Clear" onclick="clearTable()"></p>
