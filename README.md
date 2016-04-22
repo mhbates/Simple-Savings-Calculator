@@ -5,4 +5,4 @@ planned features:
 monthly contribution  
 different compound rates  
 different timeframes (days, months, years)  
-student loan  
+student loan (principal doesn't compound; only decreases with contributions)  
