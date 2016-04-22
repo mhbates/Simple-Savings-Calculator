@@ -2,6 +2,9 @@
 a very simple savings calculator
 
 planned features:
+
 monthly contribution
+
 different compound rates
+
 different timeframes (days, months, years)
