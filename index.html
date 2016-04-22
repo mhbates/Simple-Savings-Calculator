@@ -19,7 +19,13 @@
                 <form action="javascript:calc();">
                     <p><input id="principal" type="number" min="0" step="any" placeholder="Enter principal amount here" required></p>
                     <p><input id="interestRate" type="number" min="0" step="any" placeholder="Enter annual interest rate here" required></p>
-                    <p><input id="years" type="number" min="1" max="100" placeholder="Enter # of years to calculate" required></p>
+                    <p>
+                        <label>Compound Rate:</label>
+                        <input id="dailyCompound" type="radio" name="compoundRate" value="Day" onclick="compoundDaily()" required>Daily
+                        <input id="monthlyCompound" type="radio" name="compoundRate" value="Month" onclick="compoundMonthly()">Monthly
+                        <input id="yearlyCompound" type="radio" name="compoundRate" value="Year" onclick="compoundYearly()">Yearly
+                    </p>
+                    <p><input id="timeframe" type="number" min="1" max="365" placeholder="Select compound rate" required></p>
                     <p><input type="submit" value="Calculate"><input type="reset" value="Clear" onclick="clearTable()"></p>
                 </form>
 

@@ -21,6 +21,8 @@ input   {text-align: center;
         width: 25%;
         background-color: #F8F8FF;}
 
+input[type="radio"]     {width: 1%;}
+
 input[type="submit"], [type="reset"]    {width: 10%;
                                         margin: 10px;}
 
