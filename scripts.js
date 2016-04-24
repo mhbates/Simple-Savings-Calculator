@@ -100,7 +100,15 @@ function calc() {
             cell2.innerHTML = "$" + amountChange.toFixed(2);
         }
     }
+
+    var totalInterest = document.createElement("P");
+    totalInterest.id = "totalInterest";
+    totalInterest.innerHTML = "Total Interest: $" + ((newBalance - principal).toFixed(2));
+    centerDiv.appendChild(totalInterest);
+
 }
+
+
 
 
 // Clear button also clears table from last calculation
@@ -110,5 +118,9 @@ function clearTable() {
     {
         var removeTable = document.getElementById("createTable");
         centerDiv.removeChild(removeTable);
+    }
+    if (document.getElementById("totalInterest"))
+    {
+        centerDiv.removeChild(totalInterest);
     }
 }
