@@ -17,7 +17,7 @@ a:hover {color: lightgray;
         text-decoration: underline;}
 
 input   {text-align: center;
-        font-size: 1.5vw;
+        font-size: 1.5em;
         width: 25%;
         background-color: #F8F8FF;}
 
@@ -29,7 +29,7 @@ input[type="submit"], [type="reset"]    {width: 10%;
 table   {text-align: center;
         margin-left: auto;
         margin-right: auto;
-        font-size: 1.5vw;
+        font-size: 1.5em;
         margin-bottom: 2.5%;
         margin-top: 2.5%;
         width: 25%;}
@@ -38,12 +38,59 @@ td, th  {border-style: solid;
         border-width: 1px;
         padding: 8px;}
 
+#otherResultsDiv {
+        margin-left: auto;
+        margin-right: auto;
+        width: 25%;
+}
+
+#totalInterestId {
+        font-size: 2em;
+}
+
 @media only screen
-and (max-device-width: 1024px) {
-        input   {font-size: 3vw;
-                width: 50%;}
-        input[type="submit"], [type="reset"]    {width: 20%;
-                                                margin: 10px;}
-        table   {font-size: 3vw;
-                width: 50%;}
+and (max-device-width: 1400px) {
+        input {
+                font-size: 1em;
+        }
+        input[type="submit"], [type="reset"]    {margin: 10px;}
+        table   {font-size: 1em;}
+        #totalInterestId {
+                font-size: 1.5em;
+        }
+}
+
+@media only screen
+and (max-device-width: 1000px) {
+        input {
+                width: 35%;
+        }
+        input[type="submit"], [type="reset"]    {margin: 10px;
+                                                width: 20%;}
+        table   {width: 35%;}
+        #totalInterestId {
+                font-size: 1em;
+        }
+}
+
+@media only screen
+and (max-device-width: 700px) {
+        input {
+                width: 50%;
+        }
+        input[type="submit"], [type="reset"]    {margin: 10px;}
+        table   {width: 50%;}
+        #totalInterestId {
+                font-size: 0.75em;
+        }
+}
+
+@media only screen
+and (max-device-width: 500px) {
+        input {
+                width: 75%;
+        }
+        input[type="submit"], [type="reset"]    {margin: 10px;
+                                                width: 40%;}
+        table   {width: 75%;}
 }
