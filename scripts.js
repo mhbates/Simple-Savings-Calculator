@@ -23,11 +23,17 @@ function compoundYearly()  {
 // runs the calculation and generates results table
 function calc() {
 
-    // if results table already exists from previous calculation, clear it before performing next calculation
+    // if results table & other elements already exist from previous calculation, clear it before performing next calculation
     while (document.getElementById("createTable"))
     {
         var removeTable = document.getElementById("createTable");
         centerDiv.removeChild(removeTable);
+    }
+
+    while (document.getElementById("otherResultsDiv"))
+    {
+        var removeOtherResults = document.getElementById("otherResultsDiv");
+        centerDiv.removeChild(removeOtherResults);
     }
 
     // init variables for input and convert them to floating numbers or integers
@@ -101,10 +107,22 @@ function calc() {
         }
     }
 
+    // creates div container for other result elements (total interest, back to top link, etc)
+    var otherResultsDiv = document.createElement("DIV");
+    otherResultsDiv.id = "otherResultsDiv"; // id set so clearTable() and successive calc() executions can clear it, also for css styling
+    centerDiv.appendChild(otherResultsDiv);
+
     var totalInterest = document.createElement("P");
-    totalInterest.id = "totalInterest";
+    totalInterest.id = "totalInterestId"; // id set for css styling
     totalInterest.innerHTML = "Total Interest: $" + ((newBalance - principal).toFixed(2));
-    centerDiv.appendChild(totalInterest);
+    otherResultsDiv.appendChild(totalInterest);
+
+    var backToTop = document.createElement("P");
+    var topLink = document.createElement("A");
+    topLink.href = "#top";
+    topLink.innerHTML = "Back To Top";
+    backToTop.appendChild(topLink);
+    otherResultsDiv.appendChild(backToTop);
 
 }
 
@@ -119,8 +137,8 @@ function clearTable() {
         var removeTable = document.getElementById("createTable");
         centerDiv.removeChild(removeTable);
     }
-    if (document.getElementById("totalInterest"))
+    if (document.getElementById("otherResultsDiv"))
     {
-        centerDiv.removeChild(totalInterest);
+        centerDiv.removeChild(otherResultsDiv);
     }
 }
