@@ -1,7 +1,7 @@
 # [Simple-Savings-Calculator](http://mhbates.com/savings/)
 a very simple savings calculator
 
-planned features:  
+maybe/eventual (!) features:  
 monthly contribution  
 different compound rates  
 different timeframes (days, months, years)  
